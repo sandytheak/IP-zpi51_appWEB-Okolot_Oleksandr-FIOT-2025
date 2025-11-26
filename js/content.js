@@ -144,12 +144,12 @@ const labContent = {
     'main_page' : `
         <h2>6. Головна сторінка WEB-застосунку</h2>
         <p>Для перегляду HTML-коду головної сторінки застосунку перейдіть за посиланням: </p>
-        <a href="https://github.com/sandytheak/Web_Application_101/tree/main/IP-zpi51_appRECORD-Okolot_Oleksandr-FIOT-2025">Сторінка застосунку</a>
+        <a href="https://sandytheak.github.io/IP-zpi51_appRECORD-Okolot_Oleksandr-FIOT-2025/">Сторінка застосунку</a>
     `,
     'main_page_code' : `
         <h2>7. Код головної сотінки застосунку</h2>
         <p>Для перегляду HTML-коду головної сторінки застосунку перейдіть за посиланням: </p>
-        <a href="https://github.com/sandytheak/Web_Application_101/tree/main/IP-zpi51_appRECORD-Okolot_Oleksandr-FIOT-2025">Сторінка застосунку</a>
+        <a href="https://github.com/sandytheak/IP-zpi51_appRECORD-Okolot_Oleksandr-FIOT-2025">Сторінка коду застосунку</a>
     `,
 }
 
