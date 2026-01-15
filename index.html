@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Проектування WEB-застосунку (звіт)</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/content.js"></script>
+    <script src="js/view.js"></script>
 </head>
 <body>
     <header>
@@ -24,20 +24,14 @@
     <main>
         <div>
             <ul class="top-menu">
-                <li class="active">Лабараторна робота №1</li>
-                <li class="active">Лабараторна робота №2</li>
-                <li class="active">Лабараторна робота №3</li>
+                <li class="lab-btn active" data-lab="1">Лабараторна робота №1</li>
+                <li class="lab-btn" data-lab="2">Лабараторна робота №2</li>
+                <li class="lab-btn" data-lab="3">Лабараторна робота №3</li>
             </ul>
         </div>
         <div class="main-layout">
             <div class="left-sidebar">
-                <ol>
-                    <li class="active" data-content-id="app_introduction">Тема, мета та місце розташування сайту</li>
-                    <li class="active" data-content-id="business_description">Опис предметного середовища та бізнес-логіки</li>
-                    <li class="active" data-content-id="HTML_table_code">HTML-код таблиці</li>
-                    <li class="active" data-content-id="HTML_image_code">HTML-код зображення</li>
-                    <li class="active" data-content-id="main_page">Головна сторінка web-застосунку</li>
-                    <li class="active" data-content-id="main_page_code">Код головної сторінки web-застосунку</li>
+                <ol id="sidebar-menu">
                 </ol>
             </div>
             <div class="right-content" id="lab-content"> ТУТ БУДЕ ОПИС </div>

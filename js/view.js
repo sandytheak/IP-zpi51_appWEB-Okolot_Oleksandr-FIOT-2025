@@ -1,0 +1,260 @@
+const labData = {
+    1: {
+        menu: [
+            { id: 'app_introduction', title: 'Тема, мета, місце' },
+            { id: 'business_description', title: 'Опис середовища' },
+            { id: 'HTML_table_code', title: 'HTML-код таблиці' },
+            { id: 'HTML_image_code', title: 'HTML-код зображення' },
+            { id: 'main_page', title: 'Головна сторінка web-застосунку'},
+            { id: 'main_page_code', title: 'Код головної сторінки web-застосунку'}
+        ],
+        content: {
+            'app_introduction': 
+                ` <article>
+                    <h2>1. Тема, мета та місце розташування сайту</h2>
+                    <h3>Тема WEB-застосунку</h3>
+                    <p>SimAccu: Інтегрована WEB-платформа для Спрощеного Фінансового Обліку та 
+                    Управління Клієнтами (CRM) для Індивідуальних Підприємців та Малого Бізнесу.</p>
+                    <h3> Мета створення власного WEB-застосунку</h3>
+                    <p><strong>Мета:</strong> надати індивідуальним підприємцям та представникам 
+                    малого бізнесу інтуїтивно зрозумілий, доступний та безпечний інструмент, що 
+                    об'єднує ключові функції фінансового обліку та управління взаємовідносинами 
+                    з клієнтами.</p>
+                    <ol><strong>Ключові цілі:</strong>
+                        <li><strong>Спрощення обліку:</strong> Максимально автоматизувати та спростити процес 
+                        ведення фінансових записів, дозволяючи користувачам без спеціалізованих 
+                        знань швидко реєструвати доходи та витрати.</li>
+                        <li><strong>Поліпшення CRM:</strong> Централізувати інформацію про клієнтів, історію взаємодій та статус 
+                        угод для ефективного управління продажами та підвищення лояльності.</li>
+                        <li><strong>Прийняття рішень:</strong> Надавати зрозумілу аналітику та звіти, що дозволяють власнику бізнесу швидко оцінювати 
+                        фінансовий стан та приймати обґрунтовані стратегічні рішення.</li>
+                    </ol>
+                </article>`,
+            'business_description': 
+                `<article>
+                    <h2>2. Опис предметного середовища та бізнес-логіки</h2>
+                    <p>Предметне середовище застосунку SimAccu охоплює два ключові напрямки малого бізнесу: Фінансовий Облік та Управління Клієнтами (CRM), 
+                    інтегровані в єдину систему.</p>
+                    <ul>Напрям системи "Фінансовий Облік" відповідає за: 
+                        <li>Облік доходів: Реєстрація всіх надходжень (оплат від клієнтів). Доходи класифікуються за категоріями (наприклад, продаж товарів, 
+                        надання послуг). Система генерує та зберігає Рахунки-Фактури (Інвойси).</li>
+                        <li>Облік витрат: Реєстрація всіх платежів та операційних витрат. Витрати також класифікуються за категоріями (наприклад, оренда, 
+                        зарплата, маркетинг).</li>
+                        <li>Категоризація: Кожен дохід і витрата має бути прив'язаний до визначеної користувачем або стандартної категорії для подальшого аналізу.</li>
+                        <li>Баланс: Система автоматично розраховує поточний фінансовий результат (доходи мінус витрати) за вибраний період.</li>
+                    </ul>
+                    <ul>Напрям системи "Управління клієнтами" відповідає за:
+                        <li>Картка клієнта: Зберігання повної інформації про фізичних чи юридичних осіб (контакти, адреси, податкові дані).</li>
+                        <li>КВоронка продажів: Відстеження статусів угод ("Пропозиція відправлена", "Очікує оплати", "Успішно завершено").</li>
+                        <li>Інтеграція: Успішно завершена угода в CRM автоматично створює чернетку рахунку-Фактури у блоці Обліку.</li>
+                    </ul>
+                    <ul>Напрям системи "Аналітика та звітність" агрегує дані з обох модулів для створення:
+                        <li>Звітів про прибутки та збитки.</li>
+                        <li>Звітів про ефективність продажів (конверсія воронки).</li>
+                        <li>Аналізу доходів/витрат за категоріями та клієнтами.</li>
+                    </ul>
+                    <h3>Функціональні вимоги</h3>
+                    <table border=1>
+                        <tr>
+                            <th>Функціональна вимога</th>
+                            <th>Опис</th>
+                        </tr>
+                        <tr>
+                            <td>Автентифікація</td>
+                            <td>Користувач повинен мати можливість зареєструватися, увійти/вийти з системи.</td>
+                        </tr>
+                        <tr>
+                            <td>Керування клієнтами</td>
+                            <td>Користувач повинен мати можливість створювати, переглядати, редагувати та видаляти картки клієнтів.</td>
+                        </tr>
+                        <tr>
+                            <td>Облік транзакцій</td>
+                            <td>Користувач повинен мати можливість реєструвати нові транзакції та призначати їм категорію.</td>
+                        </tr>
+                        <tr>
+                            <td>Керування категоріями</td>
+                            <td>Користувач повинен мати можливість створювати та редагувати власні категорії транзакцій.</td>
+                        </tr>
+                        <tr>
+                            <td>Формування звітів</td>
+                            <td>Система повинна генерувати базові фінансові звіти за вибраний період.</td>
+                        </tr>
+                        <tr>
+                            <td>Дашборд</td>
+                            <td>Система повинна відображати огляд ключових фінансових показників на головній сторінці.</td>
+                        </tr>
+                    </table>
+                    <h3>Нефункціональні вимоги</h3>
+                    <table border=1>
+                        <tr>
+                            <th>Вимога</th>
+                            <th>Опис</th>
+                        </tr>
+                        <tr>
+                            <td>Безпека даних</td>
+                            <td>Усі персональні та фінансові дані повинні передаватися лише через захищений протокол та зберігатися у зашифрованому вигляді.</td>
+                        </tr>
+                        <tr>
+                            <td>Надійність</td>
+                            <td>Система повинна забезпечувати цілодобову доступність.</td>
+                        </tr>
+                        <tr>
+                            <td>Мобільна адаптація</td>
+                            <td>Інтерфейс застосунку має бути повністю адаптивним для коректного відображення та використання на мобільних пристроях.</td>
+                        </tr>
+                        <tr>
+                            <td>Масштабованість</td>
+                            <td>Архітектура системи повинна дозволяти швидке додавання нових функцій.</td>
+                        </tr>
+                    </table>
+                </article>  `,
+            'HTML_table_code': `
+                <article>
+                    <h2>4. HTML код зображення</h2>
+                    <p>
+                        <code>
+                            &nbsp;&lt;table border=&quot;1&quot;&gt;<br>
+                                &nbsp;&nbsp;&lt;tr&gt;<br>
+                                    &nbsp;&nbsp;&nbsp;&lt;th&gt;Accurate Accounting&lt;/th&gt;<br>
+                                    &nbsp;&nbsp;&nbsp;&lt;th&gt;Comprehensive Reporting&lt;/th&gt;<br>
+                                    &nbsp;&nbsp;&nbsp;&lt;th&gt;Actionable Analytics&lt;/th&gt;<br>
+                                &nbsp;&nbsp;&lt;/tr&gt;<br>
+                                &nbsp;&nbsp;&lt;tr&gt;<br>
+                                    &nbsp;&nbsp;&nbsp;&lt;td&gt;Easily track income and expenses, manage ledgers, and handle <br>
+                                        &nbsp;&nbsp;&nbsp;all your fundamental bookkeeping tasks. Our intuitive system <br>
+                                        &nbsp;&nbsp;&nbsp;ensures your records are always accurate and up-to-date.&lt;/td&gt;<br>
+                                    &nbsp;&nbsp;&nbsp;&lt;td&gt;Generate detailed financial reports for virtually any purpose, <br>
+                                        &nbsp;&nbsp;&nbsp;from tax filing to stakeholder review. Utilize our basic and <br>
+                                        &nbsp;&nbsp;&nbsp;customizable templates to get started quickly and ensure <br>
+                                        &nbsp;&nbsp;&nbsp;consistency.&lt;/td&gt;<br>
+                                    &nbsp;&nbsp;&lt;td&gt;Gain powerful insights from your business data. Our analytics <br>
+                                        &nbsp;&nbsp;&nbsp;tools transform your numbers into clear visualizations, helping <br>
+                                        &nbsp;&nbsp;&nbsp;you understand performance, spot trends, and make informed strategic <br>
+                                        &nbsp;&nbsp;&nbsp;decisions.&lt;/td&gt;<br>
+                                &nbsp;&nbsp;&lt;/tr&gt;<br>
+                            &nbsp;&lt;/table&gt;<br>
+                        </code>
+                    </p>
+                </article>
+            `,
+            'HTML_image_code': `
+                <article>
+                    <h2>4. HTML код зображення</h2>
+                    <p>
+                        <code>
+                            &lt;img src="images/logo.jpg" 
+                                alt="Logo"
+                                width=150px&gt;
+                        </code>
+                    </p>
+                </article>
+            `,
+            'main_page' : `
+                <h2>6. Головна сторінка WEB-застосунку</h2>
+                <p>Для перегляду HTML-коду головної сторінки застосунку перейдіть за посиланням: </p>
+                <a href="https://sandytheak.github.io/IP-zpi51_appRECORD-Okolot_Oleksandr-FIOT-2025/">Сторінка застосунку</a>
+            `,
+            'main_page_code' : `
+                <h2>7. Код головної сотінки застосунку</h2>
+                <p>Для перегляду HTML-коду головної сторінки застосунку перейдіть за посиланням: </p>
+                <a href="https://github.com/sandytheak/IP-zpi51_appRECORD-Okolot_Oleksandr-FIOT-2025">Сторінка коду застосунку</a>
+            `
+        }
+    },
+    2: {
+        menu: [
+            { id: 'lab2_theme', title: 'Тема, мета ЛР №2 Місце розташування сайту, звіту' },
+            { id: 'lab2_styles', title: 'Способи підключення стилів' },
+            { 
+                id: 'lab2_selectors', 
+                title: 'СЕЛЕКТОРИ',
+                subItems: [
+                    { id: 'sel_tag', title: 'Селектори тегу' },
+                    { id: 'sel_class', title: 'Селектори класу' },
+                    { id: 'sel_id', title: 'Селектори ідентифікаторів' },
+                    { id: 'sel_other', title: 'Інші селектори' }
+                ]
+            },
+            { id: 'lab2_css_features', title: 'CSS: Шрифти Текст Таблиці Фон Контур Списки CSS Просунутий' },
+            { id: 'lab2_conclusions', title: 'ВИСНОВКИ до ЛР №2' }
+        ],
+        content: {
+            'lab2_theme': '<h2>Тема та мета ЛР №2</h2><p>Тут ваш текст...</p>',
+            'lab2_styles': '<h2>Способи підключення стилів</h2><p>TBD</p>',
+            'sel_tag': '<h2>Селектори тегу</h2><p>Опис селекторів тегу...</p>',
+            // Додайте контент для всіх інших ID...
+        }
+    }
+};
+
+function renderLab(labId) {
+    const sidebar = document.getElementById('sidebar-menu');
+    const contentContainer = document.getElementById('lab-content');
+    const currentLab = labData[labId];
+
+    sidebar.innerHTML = ''; // Очищуємо меню
+
+    currentLab.menu.forEach((item) => {
+        const li = document.createElement('li');
+        li.textContent = item.title;
+        li.dataset.contentId = item.id;
+
+        // Якщо є підпункти, створюємо вкладений список
+        if (item.subItems) {
+            const subOl = document.createElement('ol');
+            item.subItems.forEach(subItem => {
+                const subLi = document.createElement('li');
+                subLi.textContent = subItem.title;
+                subLi.dataset.contentId = subItem.id;
+                
+                subLi.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Щоб не спрацьовував клік на батьківському елементі
+                    updateContent(subItem.id, subLi);
+                });
+                subOl.appendChild(subLi);
+            });
+            li.appendChild(subOl);
+        }
+
+        li.addEventListener('click', () => {
+            updateContent(item.id, li);
+        });
+
+        sidebar.appendChild(li);
+    });
+
+    // Функція для оновлення контенту та активного класу
+    function updateContent(id, element) {
+        if (currentLab.content[id]) {
+            contentContainer.innerHTML = currentLab.content[id];
+            
+            // Знімаємо active з усіх li в сайдбарі
+            document.querySelectorAll('#sidebar-menu li').forEach(el => el.classList.remove('active'));
+            // Додаємо active поточному
+            element.classList.add('active');
+        }
+    }
+
+    // Відкриваємо перший пункт за замовчуванням
+    const firstId = currentLab.menu[0].id;
+    updateContent(firstId, sidebar.querySelector('li'));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const topMenuBtns = document.querySelectorAll('.lab-btn');
+
+    topMenuBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            //COntrol active button
+            topMenuBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            //Render lab
+            const labId = btn.dataset.lab;
+            renderLab(labId);
+        });
+    });
+
+    //Initialisation of the first lab
+    renderLab(1);
+});

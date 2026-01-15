@@ -163,7 +163,7 @@ function changeContent(event) {
     }
 }
 
-/*function updateActiveClass(clickedElement) {
+function updateActiveClass(clickedElement) {
     
     const allMenuItems = document.querySelectorAll('.left-sidebar li[data-content-id]');
     allMenuItems.forEach(item => {
@@ -171,7 +171,7 @@ function changeContent(event) {
     });
 
     clickedElement.classList.add('active');
-}*/
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.left-sidebar li');
