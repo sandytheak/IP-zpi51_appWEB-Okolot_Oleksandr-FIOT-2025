@@ -110,7 +110,7 @@ const labData = {
                 </article>  `,
             'HTML_table_code': `
                 <article>
-                    <h2>4. HTML код зображення</h2>
+                    <h2>4. HTML код таблиці</h2>
                     <p>
                         <code>
                             &nbsp;&lt;table border=&quot;1&quot;&gt;<br>
@@ -165,16 +165,10 @@ const labData = {
         menu: [
             { id: 'lab2_theme', title: 'Тема, мета ЛР №2 Місце розташування сайту, звіту' },
             { id: 'lab2_styles', title: 'Способи підключення стилів' },
-            { 
-                id: 'lab2_selectors', 
-                title: 'СЕЛЕКТОРИ',
-                subItems: [
-                    { id: 'sel_tag', title: 'Селектори тегу' },
-                    { id: 'sel_class', title: 'Селектори класу' },
-                    { id: 'sel_id', title: 'Селектори ідентифікаторів' },
-                    { id: 'sel_other', title: 'Інші селектори' }
-                ]
-            },
+            { id: 'lab2_sel_tag', title: 'Селектори тегу' },
+            { id: 'lab2_sel_class', title: 'Селектори класу' },
+            { id: 'lab2_sel_id', title: 'Селектори ідентифікаторів' },
+            { id: 'lab2_sel_other', title: 'Інші селектори' },
             { id: 'lab2_css_features', title: 'CSS Просунутий' },
             { id: 'lab2_conclusions', title: 'ВИСНОВКИ до ЛР №2' }
         ],
@@ -212,7 +206,7 @@ const labData = {
                     <strong>Висновок:</strong> У даній лабораторній роботі було продемонстровано використання всіх трьох способів, що дозволило зрозуміти їхній пріоритет (Inline > Internal > External) та сферу застосування.
                 </div>
             </article>`,
-            'sel_tag': `<article>
+            'lab2_sel_tag': `<article>
                             <h2>Селектори тегу (Type Selectors)</h2>
                             <h3>Приклад коду з проекту:</h3>
                             <pre><code>/* Селектор тегу для оформлення секції */
@@ -223,7 +217,7 @@ const labData = {
                                 border-left: 5px solid #223f2d; 
                             }</code></pre>
                         </article>`,
-            'sel_class': `<article>
+            'lab2_sel_class': `<article>
                                 <h2>Селектори класу (Class Selectors)</h2>
                                 <p>Селектор класу дозволяє застосовувати стилі до групи елементів, які мають однаковий атрибут <code>class</code>. У проекті <strong>SimAccu</strong> це основний інструмент для створення повторюваних карток переваг.</p>
                                 
@@ -254,41 +248,41 @@ const labData = {
                                     <strong>Перевага:</strong> Використання класів дозволило нам створити єдиний дизайн для трьох різних блоків (Efficiency, Security, Control), просто додавши їм однакове ім'я класу в HTML.
                                 </div>
                             </article>`,
-            'sel_id': `<article>
-                            <h2>Селектори ідентифікаторів (ID Selectors)</h2>
-                            <p>Селектор ідентифікатора використовується для вибору одного унікального елемента на сторінці. В HTML ідентифікатор задається атрибутом <code>id</code>, а в CSS він позначається символом решітки (<code>#</code>).</p>
-                            
-                            <div style="background-color: #fff4e5; padding: 15px; border-radius: 8px; border-left: 5px solid #ff9800; margin-bottom: 20px;">
-                                <strong>Особливість:</strong> На одній сторінці не може бути двох елементів з однаковим <code>id</code>. Вони мають найвищу специфічність серед базових селекторів.
-                            </div>
+            'lab2_sel_id': `<article>
+                                <h2>Селектори ідентифікаторів (ID Selectors)</h2>
+                                <p>Селектор ідентифікатора використовується для вибору одного унікального елемента на сторінці. В HTML ідентифікатор задається атрибутом <code>id</code>, а в CSS він позначається символом решітки (<code>#</code>).</p>
+                                
+                                <div style="background-color: #fff4e5; padding: 15px; border-radius: 8px; border-left: 5px solid #ff9800; margin-bottom: 20px;">
+                                    <strong>Особливість:</strong> На одній сторінці не може бути двох елементів з однаковим <code>id</code>. Вони мають найвищу специфічність серед базових селекторів.
+                                </div>
 
-                            <h3>Застосування у проекті SimAccu:</h3>
-                            <ul>
-                                <li><strong>#brand:</strong> Використовується для унікального блоку в хедері, що об'єднує логотип та назву компанії. Забезпечує вирівнювання елементів через <code>flex</code>.</li>
-                                <li><strong>#header-logo:</strong> Застосований до зображення логотипу для точного налаштування його розміру (<code>60px</code>) та закруглення кутів.</li>
-                                <li><strong>#main-footer:</strong> Визначає унікальні стилі для підвалу сторінки, включаючи специфічний колір фону <code>#104901</code> та відступи.</li>
-                            </ul>
+                                <h3>Застосування у проекті SimAccu:</h3>
+                                <ul>
+                                    <li><strong>#brand:</strong> Використовується для унікального блоку в хедері, що об'єднує логотип та назву компанії. Забезпечує вирівнювання елементів через <code>flex</code>.</li>
+                                    <li><strong>#header-logo:</strong> Застосований до зображення логотипу для точного налаштування його розміру (<code>60px</code>) та закруглення кутів.</li>
+                                    <li><strong>#main-footer:</strong> Визначає унікальні стилі для підвалу сторінки, включаючи специфічний колір фону <code>#104901</code> та відступи.</li>
+                                </ul>
 
-                            <h3>Приклад коду:</h3>
-                            <pre><code>/* Стилізація унікального логотипу */
-                    #header-logo {
-                        width: 60px;
-                        height: auto;
-                        border-radius: 50%; /* Кругла форма */
-                    }
+                                <h3>Приклад коду:</h3>
+                                <pre><code>/* Стилізація унікального логотипу */
+                                #header-logo {
+                                    width: 60px;
+                                    height: auto;
+                                    border-radius: 50%; /* Кругла форма */
+                                }
 
-                    /* Унікальний ідентифікатор для головного футера */
-                    #main-footer {
-                        background-color: #104901;
-                        color: #ffffff;
-                        padding: 40px 0;
-                    }</code></pre>
+                                /* Унікальний ідентифікатор для головного футера */
+                                #main-footer {
+                                    background-color: #104901;
+                                    color: #ffffff;
+                                    padding: 40px 0;
+                                }</code></pre>
 
-                            <div style="background-color: #f9f9f9; padding: 15px; border-left: 5px solid #104901; margin-top: 20px;">
-                                <strong>Висновок:</strong> Ідентифікатори в проекті SimAccu дозволили нам чітко розмежувати унікальні структурні частини сторінки (логотип, бренд-блок, підвал) та надати їм пріоритетні стилі, які не будуть випадково змінені іншими правилами CSS.
-                            </div>
-    </article>`,
-            'sel_other': `<article>
+                                        <div style="background-color: #f9f9f9; padding: 15px; border-left: 5px solid #104901; margin-top: 20px;">
+                                            <strong>Висновок:</strong> Ідентифікатори в проекті SimAccu дозволили нам чітко розмежувати унікальні структурні частини сторінки (логотип, бренд-блок, підвал) та надати їм пріоритетні стилі, які не будуть випадково змінені іншими правилами CSS.
+                                        </div>
+                            </article>`,
+            'lab2_sel_other': `<article>
                                 <h2>Інші селектори CSS</h2>
                                 <p>Окрім базових селекторів, у проекті використано просунуті методи вибору елементів для створення динамічних ефектів та оптимізації коду.</p>
                                 
@@ -377,6 +371,98 @@ const labData = {
                                     </div>
                                 </article>`
         }
+    },
+
+    3: {
+        menu: [
+            { id: 'lab3_theme', title: 'Тема, мета ЛР №3. Місце розташування' },
+            { id: 'lab3_contacts', title: 'Розробка сторінки контактів та форм'},
+            { id: 'lab3_adaptive', title: 'Принципи адаптивної верстки' },
+            { id: 'lab3_js_menu', title: 'Програмна реалізація меню-бутерброда' },
+            { id: 'lab3_media_queries', title: 'Медіа-запити та Viewport' },
+            { id: 'lab3_conclusions', title: 'ВИСНОВКИ до ЛР №3' }
+        ],
+        content: {
+            'lab3_theme': `
+                <article>
+                    <h2>Тема та мета ЛР №3</h2>
+                    <h3>Верстка адаптивних веб-сторінок. JavaScript у веб-застосунках</h3>
+                    <p><strong>Мета:</strong> набути практичних навичок у створенні адаптивних інтерфейсів, що коректно відображаються на пристроях з різною шириною екрана, та впровадженні базової інтерактивності за допомогою мови програмування JavaScript.</p>
+                    <div style="background-color: #f1f8f1; padding: 15px; border-left: 5px solid #37f347; margin-top: 20px;">
+                        <strong>Місце розташування:</strong> Проект SimAccu розгорнуто на GitHub Pages.
+                    </div>
+                </article>`,
+                'lab3_contacts': `
+                    <article>
+                        <h2>Розробка сторінки контактів та форм</h2>
+                        <p>На сторінці <strong>Contact us</strong> реалізовано форму зворотного зв'язку для збору відгуків.</p>
+                        <ul>
+                            <li><strong>Валідація:</strong> використано атрибути HTML5 (required, type="email") для перевірки даних перед відправкою.</li>
+                            <li><strong>UX:</strong> додано випадаючий список для категоризації запитів (Технічна підтримка, Продажі тощо).</li>
+                            <li><strong>Адаптивність:</strong> форма автоматично переходить у вертикальний режим на екранах смартфонів завдяки Flexbox.</li>
+                        </ul>
+                    </article>`,
+                'lab3_adaptive': `
+                    <article>
+                        <h2>Принципи адаптивної верстки в SimAccu</h2>
+                        <p>Для виконання нефункціональної вимоги щодо мобільної адаптації було використано наступні підходи:</p>
+                        <ul>
+                            <li><strong>Гнучка сітка (Flexible Grids):</strong> використання відсоткових значень ширини та властивості <code>max-width: 1100px</code> для контейнерів.</li>
+                            <li><strong>Плинні зображення:</strong> встановлення <code>height: auto</code> для логотипу та фото, що дозволяє їм масштабуватися без спотворення пропорцій.</li>
+                            <li><strong>Трансформація контенту:</strong> зміна напрямку Flex-контейнерів з горизонтального (row) на вертикальний (column) на екранах менше 420px.</li>
+                        </ul>
+                        
+                    </article>`,
+
+            'lab3_js_menu': `
+                <article>
+                    <h2>Програмна реалізація розкриваючогося меню</h2>
+                    <p>Для мобільної версії було розроблено меню, яке початково приховане і розгортається лише при натисканні на кнопку.</p>
+                    <h3>JavaScript код (DOM Manipulation):</h3>
+                    <pre><code>
+                        const menu = document.querySelector('#mobile-menu');
+                        const navList = document.querySelector('.nav-list');
+
+                        menu.addEventListener('click', () => {
+                            navList.classList.toggle('active'); // Перемикання класу видимості
+                            menu.classList.toggle('is-active'); // Анімація іконки
+                        });
+                    </code></pre>
+                    <p>Цей підхід дозволяє економити місце на екрані смартфона, відображаючи навігацію лише за запитом користувача.</p>
+                </article>`,
+
+            'lab3_media_queries': `
+                <article>
+                    <h2>Використання Медіа-запитів</h2>
+                    <p>Медіа-запити (Media Queries) дозволяють застосовувати специфічні CSS-правила залежно від характеристик пристрою.</p>
+                    <p><strong>Приклад з проекту:</strong> налаштування адаптації карток переваг.</p>
+                    <pre><code>
+                            @media (max-width: 420px) {
+                                .advantage_block {
+                                    flex-direction: column !important; /* Вертикальне розміщення */
+                                    align-items: flex-start !important; /* Вирівнювання тексту ліворуч */
+                                    width: 100%;
+                                }
+                                .advantage_block img {
+                                    display: none; /* Приховування іконок для економії простору */
+                                }
+                            }
+                    </code></pre>
+                </article>`,
+
+            'lab3_conclusions': `
+                <article>
+                    <h2>Висновки до лабораторної роботи №3</h2>
+                    <div style="background-color: #f9f9f9; padding: 20px; border-left: 5px solid #104901; border-radius: 8px;">
+                        <p>Під час виконання ЛР №3 було реалізовано повну мобільну адаптацію веб-застосунку <strong>SimAccu</strong>.</p>
+                        <ul>
+                            <li><strong>Адаптивність:</strong> завдяки медіа-запитам сайт коректно відображається на смартфонах з шириною екрана 420px.</li>
+                            <li><strong>Інтерактивність:</strong> впроваджено меню-бутерброд через JavaScript, що покращило UX на мобільних пристроях.</li>
+                            <li><strong>Оптимізація:</strong> приховано зайві графічні елементи на малих екранах для пришвидшення завантаження та фокусування на текстовому контенті.</li>
+                        </ul>
+                    </div>
+                </article>`
+        }                          
     }
 };
 
@@ -392,7 +478,6 @@ function renderLab(labId) {
         li.textContent = item.title;
         li.dataset.contentId = item.id;
 
-        // Якщо є підпункти, створюємо вкладений список
         if (item.subItems) {
             const subOl = document.createElement('ol');
             item.subItems.forEach(subItem => {
@@ -401,7 +486,7 @@ function renderLab(labId) {
                 subLi.dataset.contentId = subItem.id;
                 
                 subLi.addEventListener('click', (e) => {
-                    e.stopPropagation(); // Щоб не спрацьовував клік на батьківському елементі
+                    e.stopPropagation();
                     updateContent(subItem.id, subLi);
                 });
                 subOl.appendChild(subLi);
@@ -416,19 +501,19 @@ function renderLab(labId) {
         sidebar.appendChild(li);
     });
 
-    // Функція для оновлення контенту та активного класу
+    //update content and class
     function updateContent(id, element) {
         if (currentLab.content[id]) {
             contentContainer.innerHTML = currentLab.content[id];
             
-            // Знімаємо active з усіх li в сайдбарі
+            //remove active from li in sidebar
             document.querySelectorAll('#sidebar-menu li').forEach(el => el.classList.remove('active'));
-            // Додаємо active поточному
+            //add active
             element.classList.add('active');
         }
     }
 
-    // Відкриваємо перший пункт за замовчуванням
+    //by default - first lab
     const firstId = currentLab.menu[0].id;
     updateContent(firstId, sidebar.querySelector('li'));
 }
