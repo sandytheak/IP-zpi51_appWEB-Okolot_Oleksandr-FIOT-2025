@@ -52,7 +52,7 @@ h2 {
 
 .page-header img {
     flex: 1;
-    max-width: 300px;
+    max-width: 150px;
     align-items: start;
     height: auto;
     border-radius: 20%;
@@ -63,6 +63,7 @@ h2 {
 .main-layout {
     display: flex;
     width: 100%;
+    justify-content: center;
 }
         
 .left-sidebar {
