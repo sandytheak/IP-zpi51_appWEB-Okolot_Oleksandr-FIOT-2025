@@ -838,7 +838,356 @@ printArray(arrayNew);
                     </div>
                 </article>`
         }
+        },
+        2: {
+        menu: [
+            { id: 'okr_lab2_intro', title: 'Тема, мета, постанова задачі' },
+            { id: 'okr_lab2_task1_2', title: 'Завдання 1.2 (Колбеки)' },
+            { id: 'okr_lab2_task1_4', title: 'Завдання 1.4 (Масив концертів)' },
+            { id: 'okr_lab2_task1_6', title: 'Завдання 1.6 (Медикаменти)' },
+            { id: 'okr_lab2_task1_8', title: 'Завдання 1.8 (Storage)' },
+            { id: 'okr_lab2_task1_10', title: 'Завдання 1.10 (Валідація дужок)' },
+            { id: 'okr_lab2_task2_2', title: 'Завдання 2.2 (Перевірка віку)' },
+            { id: 'okr_lab2_task2_4', title: 'Завдання 2.4 (Квадрати масиву)' },
+            { id: 'okr_lab2_task2_6', title: 'Завдання 2.6 (Сортування об\'єктів)' },
+            { id: 'okr_lab2_task2_7', title: 'Завдання 2.7 (Клас Calculator)' },
+            { id: 'okr_lab2_conclusions', title: 'ВИСНОВКИ' }
+        ],
+        content: {
+            'okr_lab2_intro': `
+                <article>
+                    <h2>Тема та мета ЛР №2</h2>
+                    <h3>Об'єкти. Класи. Функції зворотного виклику. Стрілочні функції та методи перебору масивів</h3>
+                    <p><strong>Мета:</strong> закріпити навички роботи з функціями зворотного виклику (callbacks), стрілочними функціями, перебираючими методами масивів (map, filter, some, sort) та засвоїти принципи об'єктно-орієнтованого програмування в JS (функції-конструктори, прототипи, класи ES6 та Method Chaining).</p>
+                    
+                    <h3>Постановка задачі:</h3>
+                    <ol>
+                        <li>У звітніому HTML-документі розмістити тему та постановку задачі.</li>
+                        <li>Розмістити результати виконання та програмний код завдань.</li>
+                        <li>Використовуючи сценарій на JavaScript, виконати завдання за своїм варіантом (непарні номери).</li>
+                    </ol>
+                </article>`,
+
+            'okr_lab2_task1_2': `
+                <article>
+                    <h2>Завдання 1.2 (Колбеки)</h2>
+                    <p><strong>Умова:</strong> Оголоси функцію getProductDetails(productId, successCallback, errorCallback), яка отримує деталі товару за ідентифікатором та викликає відповідний колбек залежно від результату пошуку.</p>
+                    <h3>Програмний код</h3>
+                    <pre><code>
+function successCallback(productId, productDetail) {
+    console.log(\`The product \${productId}: \${productDetail}\`);
+}
+
+function errorCallback(errorMessage) {
+    console.log(errorMessage);
+}
+
+function getProductDetails(productId, successCallback, errorCallback) {
+    let productDetail = new Map();
+    let error = "Product not found!";
+
+    productDetail.set('a001', "Banana");
+    productDetail.set('a002', "Orange");
+    productDetail.set('b002', "Hot Dog");
+    productDetail.set('b013', "Pizza");
+
+    if (productDetail.has(productId)) {
+        successCallback(productId, productDetail.get(productId));
     }
+    else {
+        errorCallback(error);
+    }
+}
+
+getProductDetails('a001', successCallback, errorCallback);
+getProductDetails('b013', successCallback, errorCallback);
+getProductDetails('x999', successCallback, errorCallback);
+                    </code></pre>
+                    <h3>Результати виконання (Console)</h3>
+                    <img src="images/lab2/task1_2.png" alt="Результат Завдання 1.2" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                </article>`,
+
+            'okr_lab2_task1_4': `
+                <article>
+                    <h2>Завдання 1.4 (Обробка масиву концертів)</h2>
+                    <p><strong>Умова:</strong> З об'єкту \`concerts\` отримати масив імен міст. Видалити міста, в яких концерт уже пройшов, та відсортувати їх у хронологічному порядку, використовуючи стрілочні функції.</p>
+                    <h3>Програмний код</h3>
+                    <pre><code>
+const concerts = {
+    Київ: new Date("2025-04-01"),
+    Умань: new Date("2027-07-02"),
+    Вінниця: new Date("2025-04-21"),
+    Одеса: new Date("2027-03-15"),
+    Хмельницький: new Date("2025-04-18"),
+    Харків: new Date("2027-07-10"),
+};
+
+const print = array => console.log(array);
+
+const getCities = concertsObj => {return Object.keys(concertsObj)};
+
+const getActualConcerts = concertsObj => {
+    const today = new Date(); // current date
+
+    return Object.keys(concertsObj)
+        .filter(city => concertsObj[city] > today)
+        .sort((a, b) => concertsObj[a] - concertsObj[b]);
+};
+
+let cities = getCities(concerts);
+print(cities);
+
+cities = getActualConcerts(concerts);
+print(cities);
+                    </code></pre>
+                    <h3>Результати виконання (Console)</h3>
+                    <img src="images/lab2/task1_4.png" alt="Результат Завдання 1.4" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                </article>`,
+
+            'okr_lab2_task1_6': `
+                <article>
+                    <h2>Завдання 1.6 (Модифікація масиву медикаментів)</h2>
+                    <p><strong>Умова:</strong> Напиши функцію, яка приймає масив об'єктів-медикаментів, додає унікальний ідентифікатор \`id\` та застосовує знижку 30% на ліки, дорожчі за 300 грн. Оригінальний масив має залишатися незмінним.</p>
+                    <h3>Програмний код</h3>
+                    <pre><code>
+const medicines = [
+    { name: "Noshpa", price: 170 },
+    { name: "Analgin", price: 55 },
+    { name: "Quanil", price: 310 },
+    { name: "Alphacholine", price: 390 },
+];
+
+const processMedicines = (meds) => {
+    return meds.map((med, index) => {
+        let newMed = { ...med };
+        newMed.id = index + 1; 
+
+        if (newMed.price > 300) {
+            newMed.price = newMed.price * 0.7; 
+        }
+        return newMed; 
+    });
+};
+
+const updatedMedicines = processMedicines(medicines);
+
+console.log("Updated array (with discount and id):", updatedMedicines);
+console.log("Original array:", medicines);
+                    </code></pre>
+                    <h3>Результати виконання (Console)</h3>
+                    <img src="images/lab2/task1_6.png" alt="Результат Завдання 1.6" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                </article>`,
+
+            'okr_lab2_task1_8': `
+                <article>
+                    <h2>Завдання 1.8 (Функція-конструктор Storage)</h2>
+                    <p><strong>Умова:</strong> Створи функцію-конструктор Storage для управління складом товарів з методами getItems(), addItems(item), removeItem(item) у прототипі.</p>
+                    <h3>Програмний код</h3>
+                    <pre><code>
+function Storage(initialItems) {
+    this.items = initialItems;
+}
+
+Storage.prototype.getItems = function() {
+    return this.items;
+};
+
+Storage.prototype.addItem = function(item) {
+    this.items.push(item);
+};
+
+Storage.prototype.removeItem = function(item) {
+    const itemIndex = this.items.indexOf(item);
+    if (itemIndex !== -1) {
+        this.items.splice(itemIndex, 1);
+    }
+};
+
+const arr = ["apple", "banana", "mango"];
+const myStorage = new Storage(arr);
+
+console.log(myStorage.getItems());
+myStorage.addItem("orange");
+console.log(myStorage.getItems());
+myStorage.removeItem("banana");
+console.log(myStorage.getItems());
+                    </code></pre>
+                    <h3>Результати виконання (Console)</h3>
+                    <img src="images/lab2/task1_8.png" alt="Результат Завдання 1.8" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                </article>`,
+
+            'okr_lab2_task1_10': `
+                <article>
+                    <h2>Завдання 1.10 (Валідація дужок)</h2>
+                    <p><strong>Умова:</strong> Напиши функцію checkBrackets(str), яка перевіряє правильність закриття дужок трьох типів: (), {}, []. Враховувати вкладеність.</p>
+                    <h3>Програмний код</h3>
+                    <pre><code>
+function checkBrackets(str) {
+    let stack = [];
+    const matchingBrackets = {
+        ')': '(',
+        '}': '{',
+        ']': '['
+    };
+
+    for (let char of str) {
+        if (char === '(' || char === '{' || char === '[') {
+            stack.push(char);
+        } 
+        else if (char === ')' || char === '}' || char === ']') {
+            if (stack.length === 0 || stack.pop() !== matchingBrackets[char]) {
+                return false;
+            }
+        }
+    }
+    return stack.length === 0;
+}
+
+console.log(checkBrackets("function someFn() { const arr = [1, 2]; }")); // true
+console.log(checkBrackets("function someFn() { const arr = [1, 2; }"));  // false
+console.log(checkBrackets("()[]{}"));                                     // true
+console.log(checkBrackets("([{}])"));                                     // true
+console.log(checkBrackets("([{)]}"));                                     // false
+                    </code></pre>
+                    <h3>Результати виконання (Console)</h3>
+                    <img src="images/lab2/task1_10.png" alt="Результат Завдання 1.10" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                </article>`,
+
+            'okr_lab2_task2_2': `
+                <article>
+                    <h2>Завдання 2.2 (Перевірка віку)</h2>
+                    <p><strong>Умова:</strong> Дано масив об'єктів. Перевірте, чи є в масиві хоча б один об'єкт, у якого вік менше 20 років, використовуючи Array.prototype.some.</p>
+                    <h3>Програмний код</h3>
+                    <pre><code>
+const people = [
+    { name: 'John', age: 27 },
+    { name: 'Jane', age: 31 },
+    { name: 'Bob', age: 19 },
+];
+
+const hasUnder20 = people.some(person => person.age < 20);
+console.log(hasUnder20);
+                    </code></pre>
+                    <h3>Результати виконання (Console)</h3>
+                    <img src="images/lab2/task2_2.png" alt="Результат Завдання 2.2" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                </article>`,
+
+            'okr_lab2_task2_4': `
+                <article>
+                    <h2>Завдання 2.4 (Квадрати елементів)</h2>
+                    <p><strong>Умова:</strong> Створіть новий масив, який містить квадрати кожного елемента вхідного масиву, не змінюючи оригінальний масив.</p>
+                    <h3>Програмний код</h3>
+                    <pre><code>
+const numbers = [1, 2, 3, 4, 5];
+
+const getPowTwo = (array) => {
+    let newArray = [...array].map(num => num ** 2);
+    return newArray;
+};
+
+console.log(getPowTwo(numbers));
+console.log(numbers);
+                    </code></pre>
+                    <h3>Результати виконання (Console)</h3>
+                    <img src="images/lab2/task2_4.png" alt="Результат Завдання 2.4" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                </article>`,
+
+            'okr_lab2_task2_6': `
+                <article>
+                    <h2>Завдання 2.6 (Сортування масиву об'єктів)</h2>
+                    <p><strong>Умова:</strong> Відсортуйте масив об'єктів користувачів за властивістю 'age' у порядку зростання.</p>
+                    <h3>Програмний код</h3>
+                    <pre><code>
+const users = [
+    { name: 'John', age: 27 },
+    { name: 'Jane', age: 31 },
+    { name: 'Bob', age: 19 },
+];
+
+const getSorted = array => {return [...array].sort((a, b) => a.age - b.age);}
+
+console.log(getSorted(users));
+console.log(users);
+                    </code></pre>
+                    <h3>Результати виконання (Console)</h3>
+                    <img src="images/lab2/task2_6.png" alt="Результат Завдання 2.6" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                </article>`,
+
+            'okr_lab2_task2_7': `
+                <article>
+                    <h2>Завдання 2.7 (Клас Calculator)</h2>
+                    <p><strong>Умова:</strong> Розроби клас Calculator, який підтримує ланцюжковий виклик (Method Chaining) для арифметичних операцій.</p>
+                    <h3>Програмний код</h3>
+                    <pre><code>
+class Calculator {
+    constructor() {
+        this.currentValue = 0; 
+    }
+
+    number(value) {
+        this.currentValue = value;
+        return this; 
+    }
+
+    add(value) {
+        this.currentValue += value;
+        return this;
+    }
+
+    subtract(value) {
+        this.currentValue -= value;
+        return this;
+    }
+
+    multiply(value) {
+        this.currentValue *= value;
+        return this;
+    }
+
+    divide(value) {
+        if (value === 0) {
+            throw new Error("Cannot divide to zero!");
+        }
+        this.currentValue /= value;
+        return this;
+    }
+
+    getResult() {
+        return this.currentValue;
+    }
+}
+
+const calc = new Calculator();
+const result = calc
+   .number(10)      
+   .add(5)          
+   .subtract(3)     
+   .multiply(4)     
+   .divide(2)       
+   .getResult();    
+
+console.log(\`Result: \${result}\`); // 24
+                    </code></pre>
+                    <h3>Результати виконання (Console)</h3>
+                    <img src="images/lab2/task2_7.png" alt="Результат Завдання 2.7" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                </article>`,
+
+            'okr_lab2_conclusions': `
+                <article>
+                    <h2>Висновки до лабораторної роботи №2</h2>
+                    <div style="background-color: #f9f9f9; padding: 20px; border-left: 5px solid #104901; border-radius: 8px;">
+                        <p>У ході виконання лабораторної роботи було поглиблено знання з сучасного JavaScript (ES6+), зокрема:</p>
+                        <ul>
+                            <li><strong>Функції та Колбеки:</strong> Опановано передачу функцій як аргументів (callbacks) та активне використання стрілочних функцій (Arrow Functions) для написання чистого коду.</li>
+                            <li><strong>Перебираючі методи масивів:</strong> На практиці застосовано методи <code>map</code>, <code>filter</code>, <code>some</code> та <code>sort</code> для ефективної обробки даних (масивів об'єктів) без мутації оригінальних колекцій (через Spread оператор <code>...</code>).</li>
+                            <li><strong>Об'єктно-орієнтоване програмування:</strong> Розглянуто різні підходи до створення об'єктів. Створено об'єкти за допомогою функції-конструктора з використанням <code>prototype</code>, а також розроблено повноцінний клас <code>Calculator</code> за синтаксисом ES6.</li>
+                            <li><strong>Method Chaining:</strong> Реалізовано патерн "ланцюгових викликів", що дозволяє послідовно викликати методи класу (повертаючи контекст <code>this</code>) для створення гнучких та читабельних API.</li>
+                            <li><strong>Алгоритмічні задачі:</strong> Успішно реалізовано алгоритм перевірки збалансованості дужок за допомогою структури даних "Стек".</li>
+                        </ul>
+                    </div>
+                </article>`
+        }
+        }
     }
 };
 
