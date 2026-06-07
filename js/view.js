@@ -491,8 +491,8 @@ const subjectsData = {
                     <ul>
                         <li><a href="https://github.com/sandytheak/IP-zpi51_appRECORD-Okolot_Oleksandr-FIOT-2025" target="_blank">Репозиторій власного WEB-застосунку</a></li>
                         <li><a href="https://sandytheak.github.io/IP-zpi51_appRECORD-Okolot_Oleksandr-FIOT-2025/" target="_blank">Жива сторінка власного WEB-застосунку</a></li>
-                        <li><a href="https://sandytheak.github.io/IP-zpi51_appWEB-Okolot_Oleksandr-FIOT-2025/?authuser=0&hl=en" target="_blank">Репозиторій звітного HTML-документу</a></li>
-                        <li><a href="https://github.com/sandytheak/IP-zpi51_appWEB-Okolot_Oleksandr-FIOT-2025" target="_blank">Жива сторінка звітного HTML-документу</a></li>
+                        <li><a href="https://github.com/sandytheak/IP-zpi51_appWEB-Okolot_Oleksandr-FIOT-2025" target="_blank">Репозиторій звітного HTML-документу</a></li>
+                        <li><a href="https://sandytheak.github.io/IP-zpi51_appWEB-Okolot_Oleksandr-FIOT-2025/?authuser=0&hl=en" target="_blank">Жива сторінка звітного HTML-документу</a></li>
                     </ul>
                     <p><em>*Примітка: замініть символ # на ваші реальні посилання.</em></p>
                 </article>`,
