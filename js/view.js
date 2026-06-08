@@ -1187,7 +1187,367 @@ console.log(\`Result: \${result}\`); // 24
                     </div>
                 </article>`
         }
+        },
+        3: {
+            menu: [
+                    { id: 'okr_lab6_intro', title: 'Тема, мета, постанова задачі' },
+                    { id: 'okr_lab6_task2', title: 'Завдання 2' },
+                    { id: 'okr_lab6_task4', title: 'Завдання 4' },
+                    { id: 'okr_lab6_task6', title: 'Завдання 6' },
+                    { id: 'okr_lab6_task7', title: 'Завдання 7' },
+                    { id: 'okr_lab6_task8', title: 'Завдання 8' },
+                    { id: 'okr_lab6_task9', title: 'Завдання 9' },
+                    { id: 'okr_lab6_task10', title: 'Завдання 10' },
+                    { id: 'okr_lab6_task3_modal', title: 'Завдання: Делегування: Модальне вікно' },
+                    { id: 'okr_lab6_conclusions', title: 'ВИСНОВКИ' }
+                ],
+                content: {
+                    'okr_lab6_intro': `
+                        <article>
+                            <h2>Тема та мета ЛР №6</h2>
+                            <h3>Об'єктна модель документа (DOM) та обробка подій</h3>
+                            <p><strong>Мета:</strong> набути практичних навичок маніпуляції елементами DOM-дерева, зміни CSS-стилів через JavaScript, роботи з колекціями елементів та делегування подій.</p>
+                            
+                            <h3>Постановка задачі:</h3>
+                            <ol>
+                                <li>У звітніому HTML-документі розмістити тему та постановку задачі.</li>
+                                <li>Розмістити результати виконання та програмний код завдань.</li>
+                                <li>У власному WEB-застосунку створити програмний код делегування подій (відкриття модального вікна).</li>
+                                <li>Виконати завдання за варіантом (парні номери: 2, 4, 6 та спільне 7).</li>
+                            </ol>
+                        </article>`,
+
+                    'okr_lab6_task2': `
+                        <article>
+                            <h2>Завдання 2 (Обмін значеннями між інпутами)</h2>
+                            <p><strong>Умова:</strong> Створити HTML-розмітку з двома інпутами та кнопкою "SWAP ME". Після натискання на кнопку здійснюється обмін вмістом між двома інпутами.</p>
+                            <h3>Програмний код (HTML + JS)</h3>
+                            <pre><code>
+        &lt;div class="task-box"&gt;
+            &lt;h3&gt;TASK 2&lt;/h3&gt;
+            &lt;button id="swapBtn"&gt;SWAP ME&lt;/button&gt;
+            &lt;input type="text" id="inputLeft" value="111"&gt;
+            &lt;input type="text" id="inputRight" value="999"&gt;
+        &lt;/div&gt;
+
+        &lt;script&gt;
+            const button = document.getElementById('swapBtn');
+            const inputLeft = document.getElementById('inputLeft');
+            const inputRight = document.getElementById('inputRight');
+
+            button.addEventListener('click', () =&gt; {
+                [inputLeft.value, inputRight.value] = [inputRight.value, inputLeft.value];
+            });
+        &lt;/script&gt;
+                            </code></pre>
+                            <h3>Результати виконання (Браузер)</h3>
+                            <img src="images/lab3/task2.png" alt="Результат Завдання 2" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                        </article>`,
+
+                    'okr_lab6_task4': `
+                        <article>
+                            <h2>Завдання 4 (Зміна розмірів елемента)</h2>
+                            <p><strong>Умова:</strong> Створити квадрат (div) та дві кнопки. Кнопка "Зменшити" робить квадрат менше на 15 пікселів. Кнопка "Збільшити" робить квадрат більше на 15 пікселів.</p>
+                            <h3>Програмний код (HTML + JS)</h3>
+                            <pre><code>
+        &lt;div class="task-box"&gt;
+            &lt;h3&gt;ЗАВДАННЯ 4&lt;/h3&gt;
+            &lt;div id="resizableSquare"&gt;&lt;/div&gt;
+            &lt;button id="btnDecrease"&gt;Зменшити&lt;/button&gt;
+            &lt;button id="btnIncrease"&gt;Збільшити&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;script&gt;
+            const square = document.getElementById('resizableSquare');
+            const btnDecrease = document.getElementById('btnDecrease');
+            const btnIncrease = document.getElementById('btnIncrease');
+
+            let currentSize = 50; 
+            const step = 15; 
+
+            const updateSquareSize = () =&gt; {
+                square.style.width = currentSize + 'px';
+                square.style.height = currentSize + 'px';
+            };
+
+            btnIncrease.addEventListener('click', () =&gt; {
+                currentSize += step;
+                updateSquareSize();  
+            });
+
+            btnDecrease.addEventListener('click', () =&gt; {
+                if (currentSize - step &gt; 0) {
+                    currentSize -= step;
+                    updateSquareSize();
+                }
+            });
+        &lt;/script&gt;
+                            </code></pre>
+                            <h3>Результати виконання (Браузер)</h3>
+                            <img src="images/lab3/task4.png" alt="Результат Завдання 4" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                        </article>`,
+
+                    'okr_lab6_task6': `
+                        <article>
+                            <h2>Завдання 6 (Математика зі списком)</h2>
+                            <p><strong>Умова:</strong> Створити маркований список чисел та кнопку "Подвоїти" (зведення у квадрат). При натисканні збільшити значення у кожному елементі списку. Додано запобіжник від переповнення.</p>
+                            <h3>Програмний код (HTML + JS)</h3>
+                            <pre><code>
+        &lt;div class="task-box"&gt;
+            &lt;h3&gt;ЗАВДАННЯ 6&lt;/h3&gt;
+            &lt;ul id="numberList"&gt;
+                &lt;li&gt;1&lt;/li&gt;&lt;li&gt;4&lt;/li&gt;&lt;li&gt;8&lt;/li&gt;
+                &lt;li&gt;16&lt;/li&gt;&lt;li&gt;20&lt;/li&gt;&lt;li&gt;30&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;button id="btnDouble"&gt;Подвоїти&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;script&gt;
+            const btnDouble = document.getElementById('btnDouble');
+            const listItems = document.querySelectorAll('#numberList li');
+            
+            const MAX_LIMIT = 1000000000000; 
+
+            btnDouble.addEventListener('click', () =&gt; {
+                listItems.forEach(item =&gt; {
+                    let currentValue = parseInt(item.textContent);
+                    let newValue = currentValue * currentValue; 
+                    
+                    if (newValue &gt; MAX_LIMIT) {
+                        btnDouble.disabled = true;
+                        btnDouble.textContent = "Ліміт досягнуто";
+                    } else {
+                        item.textContent = newValue;
+                    }
+                });
+            });
+        &lt;/script&gt;
+                            </code></pre>
+                            <h3>Результати виконання (Браузер)</h3>
+                            <img src="images/lab3/task6.png" alt="Результат Завдання 6" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                        </article>`,
+
+                    'okr_lab6_task7': `
+                        <article>
+                            <h2>Завдання 7 (Навігація по DOM)</h2>
+                            <p><strong>Умова:</strong> Написати скрипт, який порахує і виведе в консоль кількість категорій в <code>ul#categories</code>, а також для кожного елемента <code>li.item</code> виведе текст заголовка та кількість елементів у категорії.</p>
+                            <h3>Програмний код (HTML + JS)</h3>
+                            <pre><code>
+        &lt;ul id="categories"&gt;
+            &lt;li class="item"&gt;
+                &lt;h2&gt;Animals&lt;/h2&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Cat&lt;/li&gt;&lt;li&gt;Hamster&lt;/li&gt;&lt;li&gt;Horse&lt;/li&gt;&lt;li&gt;Parrot&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;!-- Аналогічно для Products та Technologies --&gt;
+        &lt;/ul&gt;
+
+        &lt;script&gt;
+            const categories = document.querySelectorAll('#categories .item');
+            console.log(\`Number of categories: \${categories.length}\`);
+
+            categories.forEach(category =&gt; {
+                const categoryName = category.firstElementChild.textContent;
+                const elementsCount = category.lastElementChild.children.length;
+
+                console.log(\`Category: \${categoryName}\`);
+                console.log(\`Elements: \${elementsCount}\`);
+            });
+        &lt;/script&gt;
+                            </code></pre>
+                            <h3>Результати виконання (Console)</h3>
+                            <img src="images/lab3/task7.png" alt="Результат Завдання 7" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                        </article>`,
+                        'okr_lab6_task8': `
+                <article>
+                    <h2>Завдання 8 (Управління формою логіна)</h2>
+                    <p><strong>Умова:</strong> Написати скрипт управління формою логіна. Обробка відправлення форми повинна відбуватися за подією <code>submit</code>. Сторінка не повинна перезавантажуватися. Реалізувати валідацію порожніх полів та виведення зібраних даних у консоль у вигляді об'єкта.</p>
+                    <h3>Програмний код (HTML + JS)</h3>
+                    <pre><code>
+&lt;form class="login-form"&gt;
+    &lt;label&gt;
+        Email
+        &lt;input type="email" name="email" /&gt;
+    &lt;/label&gt;
+    &lt;label&gt;
+        Password
+        &lt;input type="password" name="password" /&gt;
+    &lt;/label&gt;
+    &lt;button type="submit"&gt;Log in&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+    const loginForm = document.querySelector('.login-form');
+
+    loginForm.addEventListener('submit', (event) =&gt; {
+        event.preventDefault();
+
+        const formElements = event.currentTarget.elements;
+        const emailInput = formElements.email;
+        const passwordInput = formElements.password;
+
+        const emailValue = emailInput.value.trim();
+        const passwordValue = passwordInput.value.trim();
+
+        if (emailValue === '' || passwordValue === '') {
+            return alert('All form fields must be filled in');
         }
+
+        const formData = {
+            [emailInput.name]: emailValue,
+            [passwordInput.name]: passwordValue
+        };
+
+        console.log(formData);
+        event.currentTarget.reset(); 
+    });
+&lt;/script&gt;
+                    </code></pre>
+                    <h3>Результати виконання (Console)</h3>
+                    <img src="images/lab3/task8.png" alt="Результат Завдання 8" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                </article>`,
+
+            'okr_lab6_task9': `
+                <article>
+                    <h2>Завдання 9 (Генератор кольору)</h2>
+                    <p><strong>Умова:</strong> Написати скрипт, який змінює колір фону елемента <code>&lt;body&gt;</code> через інлайн-стиль по кліку на кнопку та виводить значення кольору в <code>&lt;span&gt;</code>.</p>
+                    <h3>Програмний код (HTML + JS)</h3>
+                    <pre><code>
+&lt;div class="widget"&gt;
+    &lt;p&gt;Background color: &lt;span class="color"&gt;-&lt;/span&gt;&lt;/p&gt;
+    &lt;button type="button" class="change-color"&gt;Change color&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    function getRandomHexColor() {
+        return \`#\${Math.floor(Math.random() * 16777215).toString(16).padStart(6, 0)}\`;
+    }
+
+    const bodyElement = document.body; 
+    const colorSpan = document.querySelector('span.color');
+    const changeColorBtn = document.querySelector('button.change-color');
+
+    changeColorBtn.addEventListener('click', () =&gt; {
+        const newColor = getRandomHexColor();
+        bodyElement.style.backgroundColor = newColor;
+        colorSpan.textContent = newColor;
+    });
+&lt;/script&gt;
+                    </code></pre>
+                    <h3>Результати виконання (Браузер)</h3>
+                    <img src="images/lab3/task9.png" alt="Результат Завдання 9" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                </article>`,
+
+            'okr_lab6_task10': `
+                <article>
+                    <h2>Завдання 10 (Генератор колекції елементів)</h2>
+                    <p><strong>Умова:</strong> Написати скрипт створення й очищення колекції елементів. Користувач вводить кількість у <code>input</code>, після кліку на "Create" рендериться відповідна кількість <code>div</code> заданих розмірів (збільшення на 10px кожен) та випадкового кольору. Кнопка "Destroy" очищає колекцію.</p>
+                    <h3>Програмний код (HTML + JS)</h3>
+                    <pre><code>
+&lt;div id="controls"&gt;
+    &lt;input type="number" min="1" max="100" step="1" /&gt;
+    &lt;button type="button" data-create&gt;Create&lt;/button&gt;
+    &lt;button type="button" data-destroy&gt;Destroy&lt;/button&gt;
+&lt;/div&gt;
+&lt;div id="boxes"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    const input = document.querySelector('#controls input');
+    const btnCreate = document.querySelector('[data-create]');
+    const btnDestroy = document.querySelector('[data-destroy]');
+    const boxesContainer = document.querySelector('#boxes');
+
+    function getRandomHexColor() {
+        return \`#\${Math.floor(Math.random() * 16777215).toString(16).padStart(6, 0)}\`;
+    }
+
+    function createBoxes(amount) {
+        boxesContainer.innerHTML = '';
+        const boxesArray = [];
+        let boxSize = 30; 
+
+        for (let i = 0; i &lt; amount; i++) {
+            const box = document.createElement('div');
+            box.style.width = \`\${boxSize}px\`;
+            box.style.height = \`\${boxSize}px\`;
+            box.style.backgroundColor = getRandomHexColor();
+            boxSize += 10;
+            boxesArray.push(box);
+        }
+        boxesContainer.append(...boxesArray);
+    }
+
+    function destroyBoxes() {
+        boxesContainer.innerHTML = '';
+    }
+
+    btnCreate.addEventListener('click', () =&gt; {
+        const amount = Number(input.value);
+        if (amount &gt;= 1 && amount &lt;= 100) {
+            createBoxes(amount);
+            input.value = ''; 
+        } else {
+            alert('Будь ласка, введіть число від 1 до 100');
+        }
+    });
+
+    btnDestroy.addEventListener('click', destroyBoxes);
+&lt;/script&gt;
+                    </code></pre>
+                    <h3>Результати виконання (Браузер)</h3>
+                    <img src="images/lab3/task10.png" alt="Результат Завдання 10" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;">
+                </article>`,
+
+                    'okr_lab6_task3_modal': `
+                        <article>
+                            <h2>Завдання: Делегування подій у власному застосунку</h2>
+                            <p><strong>Умова:</strong> У власному WEB-застосунку створити програмний код делегування подій: при виборі елемента в колекції елементів повинне відкритись модальне вікно, яке міститиме опис цього елемента.</p>
+                            <div style="background-color: #fff4e5; padding: 15px; border-left: 5px solid #ff9800; border-radius: 8px;">
+                                <p><strong>Реалізація:</strong> Код даного завдання інтегровано безпосередньо у власний веб-застосунок (SimAccu). Переглянути реалізацію модального вікна та делегування подій можна у <a href="https://sandytheak.github.io/IP-zpi51_appRECORD-Okolot_Oleksandr-FIOT-2025/" target="_blank">репозиторії застосунку</a>.</p>
+                            </div>
+                        </article>`,
+
+                    'okr_lab6_conclusions': `
+                        <article>
+                            <h2>Висновки до лабораторної роботи №3</h2>
+                            <div style="background-color: #f9f9f9; padding: 20px; border-left: 5px solid #104901; border-radius: 8px;">
+                                <p>Під час виконання лабораторної роботи були засвоєні практичні аспекти роботи з Об'єктною моделлю документа (DOM):</p>
+                                <ul>
+                                    <li><strong>Маніпуляція елементами:</strong> Успішно застосовано методи пошуку елементів у DOM-дереві (<code>getElementById</code>, <code>querySelectorAll</code>).</li>
+                                    <li><strong>Навігація:</strong> Відпрацьовано переміщення по DOM-дереву з використанням властивостей <code>firstElementChild</code>, <code>lastElementChild</code> та <code>children</code>.</li>
+                                    <li><strong>Зміна стилів:</strong> Реалізовано динамічну зміну інлайн-стилів елементів (збільшення/зменшення розмірів квадрата) у відповідь на дії користувача.</li>
+                                    <li><strong>Обробка подій:</strong> Налаштовано прослуховувачі подій (<code>addEventListener</code>) на кнопки для виконання різноманітних дій: обмін значеннями інпутів, математичні операції з контентом та зміна розмірів.</li>
+                                    <li><strong>Безпека:</strong> Впроваджено логічні запобіжники у скриптах (наприклад, запобігання від'ємним розмірам квадрата та ліміт на переповнення при зведенні в квадрат).</li>
+                                </ul>
+                            </div>
+                        </article>`
+                }
+            },
+            4: {
+        menu: [
+            { id: 'okr_lab7_intro', title: 'Тема, мета, постанова задачі' }
+        ],
+        content: {
+            'okr_lab7_intro': `
+                <article>
+                    <h2>Тема та мета ЛР №4</h2>
+                    <h3>АМОДУЛЬНОСТЬ КОДУ. NODE.JS. JSON. WEB STORAGE API.АСИНХРОННІСТЬ. ПРОМІСИ. HTTP-ЗАПИТИ. REST API. AJAX. КРОС- ДОМЕННІ ЗАПИТИ. ПАГІНАЦІЯ. CRUD</h3>
+                    <p><strong>Мета:</strong> придбати практичні навички роботи створення модального вікна; повторити процес створення макету, зокрема створення макету галереї довільних зображень;закріпити навички роботи з делегуванням подій.</p>
+                    
+                    <h3>Посилання на ресурси (Завдання 2-5):</h3>
+                    <ul>
+                        <li><a href="https://github.com/sandytheak/BCD_Lab_07" target="_blank">Репозиторій програмного коду</a></li>
+                        <li><a href="https://sandytheak.github.io/BCD_Lab_07/" target="_blank">Жива сторінка завдань</a></li>
+                    </ul>
+                    <h3>Посилання на ресурси (Завдання 6):</h3>
+                    <ul>
+                        <li><a href="https://github.com/sandytheak/vite_lab7" target="_blank">Репозиторій програмного коду</a></li>
+                        <li>Жива сторінка завданя відсутнє через наявність у коді АРІ ключа (був замінений на ХХХ</a></li>
+                    </ul>
+                </article>`
+        }
+    }
     }
 };
 
